@@ -3,23 +3,28 @@
   "version": "0.0.0",
   "private": true,
   "workspaces": [
-    "apps/*",
-    "packages/*"
+    "config/tsconfig",
+    "backend/apps/*",
+    "frontend/apps/*",
+    "frontend/components/*",
+    "frontend/dev/*",
+    "frontend/pages/*",
+    "resources/widgets/*"
   ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "desktop": "yarn workspace desktop dev",
+    "playground": "yarn workspace playground storybook"
   },
   "devDependencies": {
-    "eslint-config-custom": "*",
     "prettier": "latest",
     "turbo": "latest"
   },
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
-  "packageManager": "yarn@1.22.15"
+  "packageManager": "yarn@3.5.0"
 }

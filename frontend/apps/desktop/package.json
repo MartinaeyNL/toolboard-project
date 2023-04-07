@@ -1,0 +1,8 @@
+{
+  "name": "desktop",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "wails dev",
+    "build": "wails build"
+  }
+}
