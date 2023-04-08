@@ -9,7 +9,10 @@
     "build": "rimraf lib/ && tsc"
   },
   "dependencies": {
-    "lit": "^2.7.0"
+    "@toolboard/tb-menu": "1.0.0",
+    "@toolboard/tb-utils": "1.0.0",
+    "lit": "^2.7.0",
+    "pages-desktop-home": "1.0.0"
   },
   "devDependencies": {
     "rimraf": "^3.0.2",

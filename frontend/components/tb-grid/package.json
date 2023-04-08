@@ -9,6 +9,7 @@
     "build": "rimraf lib/ && tsc"
   },
   "dependencies": {
+    "@shoelace-style/shoelace": "^2.3.0",
     "lit": "^2.7.0"
   },
   "devDependencies": {
