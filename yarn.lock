@@ -2784,7 +2784,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@toolboard/tb-split-panel@workspace:frontend/components/tb-split-panel":
+"@toolboard/tb-split-panel@1.0.0, @toolboard/tb-split-panel@workspace:frontend/components/tb-split-panel":
   version: 0.0.0-use.local
   resolution: "@toolboard/tb-split-panel@workspace:frontend/components/tb-split-panel"
   dependencies:
@@ -2797,9 +2797,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@toolboard/tb-utils@1.0.0, @toolboard/tb-utils@workspace:frontend/components/tb-utils":
+"@toolboard/tb-state@workspace:frontend/utils/tb-state":
   version: 0.0.0-use.local
-  resolution: "@toolboard/tb-utils@workspace:frontend/components/tb-utils"
+  resolution: "@toolboard/tb-state@workspace:frontend/utils/tb-state"
+  dependencies:
+    lit: ^2.7.0
+    rimraf: ^3.0.2
+    rxjs: ^7.8.0
+    tsc-watch: ^6.0.0
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
+"@toolboard/tb-utils@1.0.0, @toolboard/tb-utils@workspace:frontend/utils/tb-utils":
+  version: 0.0.0-use.local
+  resolution: "@toolboard/tb-utils@workspace:frontend/utils/tb-utils"
   dependencies:
     "@shoelace-style/shoelace": ^2.3.0
     lit: ^2.7.0
@@ -7114,6 +7126,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "pages-desktop-home@workspace:frontend/pages/desktop-home"
   dependencies:
+    "@toolboard/tb-split-panel": 1.0.0
     lit: ^2.7.0
     rimraf: ^3.0.2
     tsc-watch: ^6.0.0
@@ -7901,6 +7914,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rxjs@npm:^7.8.0":
+  version: 7.8.0
+  resolution: "rxjs@npm:7.8.0"
+  dependencies:
+    tslib: ^2.1.0
+  checksum: 61b4d4fd323c1043d8d6ceb91f24183b28bcf5def4f01ca111511d5c6b66755bc5578587fe714ef5d67cf4c9f2e26f4490d4e1d8cabf9bd5967687835e9866a2
+  languageName: node
+  linkType: hard
+
 "sade@npm:^1.7.3":
   version: 1.8.1
   resolution: "sade@npm:1.8.1"
@@ -8603,7 +8625,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.1, tslib@npm:^2.4.0":
+"tslib@npm:^2.0.1, tslib@npm:^2.1.0, tslib@npm:^2.4.0":
   version: 2.5.0
   resolution: "tslib@npm:2.5.0"
   checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1

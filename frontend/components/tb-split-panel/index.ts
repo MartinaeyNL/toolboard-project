@@ -35,7 +35,7 @@ export class TbSplitPanel extends LitElement {
         return html`
             <div class="split-panel-divider" style="height: 100%;">
                 <sl-split-panel style="height: 100%;">
-                    <div slot="start">
+                    <div slot="start" style="overflow: hidden;">
                         ${this.start}
                     </div>
                     ${when(this.dividerOverride, () => html`
@@ -43,7 +43,7 @@ export class TbSplitPanel extends LitElement {
                             ${this.dividerOverride}
                         </div>
                     `)}
-                    <div slot="end">
+                    <div slot="end" style="overflow: hidden">
                         ${this.end}
                     </div>
                 </sl-split-panel>

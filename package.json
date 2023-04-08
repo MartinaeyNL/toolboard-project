@@ -9,6 +9,7 @@
     "frontend/components/*",
     "frontend/dev/*",
     "frontend/pages/*",
+    "frontend/utils/*",
     "resources/widgets/*"
   ],
   "scripts": {
