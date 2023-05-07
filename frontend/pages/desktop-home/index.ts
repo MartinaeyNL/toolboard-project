@@ -1,4 +1,4 @@
-import {css, html, LitElement, PropertyValues, TemplateResult} from "lit";
+import {html, LitElement, PropertyValues, TemplateResult} from "lit";
 import {customElement, state} from 'lit/decorators.js';
 import "@toolboard/tb-split-panel";
 import {GetCurrentDashboardObserver, SetCurrentDashboard} from "@toolboard/tb-state";

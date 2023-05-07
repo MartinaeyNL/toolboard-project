@@ -108,3 +108,5 @@ func EmbedWidgetHTML(ctx *gin.Context) {
 
 	ctx.File(path)
 }
+
+// TODO: Get rid of this /widget/embed code since I think it should either be removed or handled differently.
