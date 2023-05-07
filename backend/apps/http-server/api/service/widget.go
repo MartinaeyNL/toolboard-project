@@ -10,6 +10,7 @@ import (
 	"toolboard/models"
 )
 
+// TODO: CURRENTLY UNUSED / OUTDATED
 func QueryAllWidgets(ctx *gin.Context) []models.Widget {
 	var widgets []models.Widget
 

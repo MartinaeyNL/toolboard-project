@@ -1,6 +1,5 @@
 import {css, html, LitElement, TemplateResult} from "lit";
-import {GetCurrentDashboardObserver} from "@toolboard/tb-state";
-import {customElement, property, state} from "lit/decorators.js";
+import {customElement, property} from "lit/decorators.js";
 import {styleMap} from "lit/directives/style-map.js";
 import {globalStyle} from "@toolboard/tb-utils";
 import {when} from "lit/directives/when.js";
@@ -77,7 +76,7 @@ export class TbListBrowse extends LitElement {
 
     protected getBaseItemStyleMap(item: ListItem): {} {
         return {
-            background: (this.transparent ? 'none' : '#707070'), // TODO: fix this
+            background: (this.transparent ? 'none' : 'var(--tb-color-background-300)'), // TODO: fix this
             padding: (this.compact ? '8px 12px' : '16px 24px')
         }
     }

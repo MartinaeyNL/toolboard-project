@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@toolboard/tb-utils": "1.0.0",
-    "flat": "^5.0.2",
     "lit": "^2.7.0"
   },
   "devDependencies": {
