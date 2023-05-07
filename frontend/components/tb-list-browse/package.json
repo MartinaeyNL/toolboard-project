@@ -1,5 +1,5 @@
 {
-  "name": "pages-desktop-home",
+  "name": "@toolboard/tb-list-browse",
   "version": "1.0.0",
   "main": "./index.ts",
   "types": "./index.ts",
@@ -9,11 +9,8 @@
     "build": "rimraf lib/ && tsc"
   },
   "dependencies": {
-    "@toolboard/tb-api": "1.0.0",
-    "@toolboard/tb-list-browse": "1.0.0",
-    "@toolboard/tb-spinner": "1.0.0",
-    "@toolboard/tb-split-panel": "1.0.0",
     "@toolboard/tb-state": "1.0.0",
+    "@toolboard/tb-utils": "1.0.0",
     "lit": "^2.7.0"
   },
   "devDependencies": {

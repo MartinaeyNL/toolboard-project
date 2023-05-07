@@ -1,10 +1,11 @@
 import { BehaviorSubject, Observable } from "rxjs";
+import {Dashboard} from "@toolboard/tb-api";
 
-const currentDashboardSubject = new BehaviorSubject<string>(undefined);
+const currentDashboardSubject = new BehaviorSubject<Dashboard | undefined>(undefined);
 
-export function getCurrentDashboardObserver(): Observable<string> {
+export function GetCurrentDashboardObserver(): Observable<Dashboard | undefined> {
     return currentDashboardSubject.asObservable();
 }
-export function setCurrentDashboard(value: string) {
+export function SetCurrentDashboard(value: Dashboard | undefined) {
     currentDashboardSubject.next(value);
 }

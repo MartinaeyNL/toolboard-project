@@ -5,8 +5,8 @@ import (
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 	"log"
-	"toolboard/http_server/models"
 	"toolboard/http_server/storage"
+	"toolboard/models"
 )
 
 var db *gorm.DB

@@ -18,11 +18,14 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "desktop": "yarn workspace desktop dev",
-    "playground": "yarn workspace playground storybook"
+    "playground": "yarn workspace playground storybook",
+    "gendocs": "node ./scripts/internal/genApiDoc.js",
+    "genfetchclient": "yarn workspace @toolboard/tb-api generate",
+    "projectInstall": "node ./scripts/internal/projectInstall.js",
+    "http-server-only": "node ./scripts/internal/serveHttpApi.js"
   },
   "devDependencies": {
-    "prettier": "latest",
-    "turbo": "latest"
+    "prettier": "latest"
   },
   "engines": {
     "node": ">=14.0.0"

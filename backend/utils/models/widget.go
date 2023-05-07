@@ -5,7 +5,7 @@ type Widget struct {
 	ID          string `json:"id,omitempty" gorm:"primarykey"`
 	InstallPath string `json:"installPath"`
 	WidgetJSON  string `json:"widgetJSON"`
-}
+} //@name Widget
 
 /*---------------------*/
 

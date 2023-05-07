@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"path/filepath"
 	"toolboard/http_server/api/service"
-	"toolboard/http_server/models"
+	"toolboard/models"
 )
 
 // GetAllWidgets backend
@@ -15,7 +15,7 @@ import (
 //		@Description	Returns one json object with all available widgets
 //		@Tags			widget
 //		@Produce		json
-//		@Success		200	{object}	[]models.Widget
+//		@Success		200	{object}	[]Widget
 //	    @Failure		404
 //		@Failure		500
 //		@Router			/widget/all [get]
@@ -35,7 +35,7 @@ func GetAllWidgets(ctx *gin.Context) {
 //		@Tags			widget
 //	    @Param          id   path      string  true  "Widget ID"
 //		@Produce		json
-//		@Success		200	{object}	models.Widget
+//		@Success		200	{object}	Widget
 //	    @Failure		404
 //		@Failure		500
 //		@Router			/widget/{id} [get]

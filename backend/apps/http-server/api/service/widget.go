@@ -6,8 +6,8 @@ import (
 	"github.com/gin-gonic/gin"
 	"os"
 	"path/filepath"
-	"toolboard/http_server/models"
 	"toolboard/http_server/storage"
+	"toolboard/models"
 )
 
 func QueryAllWidgets(ctx *gin.Context) []models.Widget {

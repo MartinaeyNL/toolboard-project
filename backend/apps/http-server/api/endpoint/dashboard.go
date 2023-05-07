@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"toolboard/http_server/database"
-	"toolboard/http_server/models"
+	"toolboard/models"
 )
 
 // GetAllDashboards backend
@@ -13,7 +13,7 @@ import (
 //	@Description	Returns one json object with all dashboards in the database
 //	@Tags			dashboard
 //	@Produce		json
-//	@Success		200	{object}	[]models.Dashboard
+//	@Success		200	{object}	[]Dashboard
 //	@Failure		500
 //	@Router			/dashboard/all [get]
 func GetAllDashboards(ctx *gin.Context) {
@@ -34,8 +34,8 @@ func GetAllDashboards(ctx *gin.Context) {
 //	@Tags			dashboard
 //	@Accept			json
 //	@Produce		json
-//	@Param			dashboard body		models.Dashboard	true		"The dashboard to create"
-//	@Success		201	{object}		models.Dashboard
+//	@Param			dashboard body		Dashboard	true		"The dashboard to create"
+//	@Success		201	{object}		Dashboard
 //	@Failure		400
 //	@Failure		500
 //	@Router			/dashboard [post]

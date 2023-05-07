@@ -9,7 +9,7 @@
     "build": "rimraf lib/ && tsc"
   },
   "dependencies": {
-    "lit": "^2.7.0",
+    "@toolboard/tb-api": "1.0.0",
     "rxjs": "^7.8.0"
   },
   "devDependencies": {

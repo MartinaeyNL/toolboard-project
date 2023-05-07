@@ -2,7 +2,7 @@ package models
 
 import "time"
 
-// Dashboard backend
+// Dashboard model info
 type Dashboard struct {
 	ID          uint               `json:"id" gorm:"primarykey"`
 	CreatedAt   time.Time          `json:"createdAt,omitempty"`
@@ -10,9 +10,10 @@ type Dashboard struct {
 	DisplayName string             `json:"displayName"`
 	Description *string            `json:"description"`
 	Widgets     *[]DashboardWidget `json:"widgets"`
-}
+} //@name Dashboard
 
-// DashboardWidget backend
+// DashboardWidget model info
+// @description Widget inside a Dashboard
 type DashboardWidget struct {
 	ID          uint                    `json:"id" gorm:"primarykey"`
 	CreatedAt   time.Time               `json:"createdAt,omitempty"`
@@ -24,9 +25,10 @@ type DashboardWidget struct {
 	Location    DashboardWidgetLocation `json:"location"`
 	WidgetId    uint
 	LocationId  uint
-}
+} //@name DashboardWidget
 
-// DashboardWidgetLocation backend
+// DashboardWidgetLocation model info
+// @description Location of a widget inside a Dashboard
 type DashboardWidgetLocation struct {
 	ID        uint      `json:"id" gorm:"primarykey"`
 	CreatedAt time.Time `json:"createdAt,omitempty"`
@@ -39,4 +41,4 @@ type DashboardWidgetLocation struct {
 	Height    int       `json:"height"`
 	MinHeight *int      `json:"minHeight"`
 	MaxHeight *int      `json:"maxHeight"`
-}
+} //@name DashboardWidgetLocation
