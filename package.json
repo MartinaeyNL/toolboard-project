@@ -8,6 +8,7 @@
     "frontend/apps/*",
     "frontend/components/*",
     "frontend/dev/*",
+    "frontend/features/*",
     "frontend/pages/*",
     "frontend/utils/*",
     "resources/widgets/*"
@@ -19,7 +20,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "desktop": "yarn workspace desktop dev",
     "playground": "yarn workspace playground storybook",
-    "gendocs": "node ./scripts/internal/genApiDoc.js",
+    "genapidoc": "node ./scripts/internal/genApiDoc.js",
     "genfetchclient": "yarn workspace @toolboard/tb-api generate",
     "projectInstall": "node ./scripts/internal/projectInstall.js",
     "http-server-only": "node ./scripts/internal/serveHttpApi.js"

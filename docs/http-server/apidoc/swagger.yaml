@@ -4,12 +4,10 @@ definitions:
     properties:
       createdAt:
         type: string
-      description:
-        type: string
-      displayName:
-        type: string
       id:
         type: integer
+      metadata:
+        $ref: '#/definitions/DashboardMetadata'
       updatedAt:
         type: string
       widgets:
@@ -17,8 +15,47 @@ definitions:
           $ref: '#/definitions/DashboardWidget'
         type: array
     type: object
+  DashboardMetadata:
+    properties:
+      createdAt:
+        type: string
+      dashboardId:
+        type: integer
+      description:
+        type: string
+      displayName:
+        type: string
+      headerImage:
+        items:
+          type: integer
+        type: array
+      id:
+        type: integer
+      tags:
+        items:
+          $ref: '#/definitions/DashboardTag'
+        type: array
+      updateAt:
+        type: string
+    type: object
+  DashboardTag:
+    properties:
+      bgColor:
+        type: string
+      createdAt:
+        type: string
+      dashboardMetadataId:
+        type: integer
+      displayName:
+        type: string
+      id:
+        type: integer
+      textColor:
+        type: string
+      updatedAt:
+        type: string
+    type: object
   DashboardWidget:
-    description: Widget inside a Dashboard
     properties:
       createdAt:
         type: string
@@ -42,7 +79,6 @@ definitions:
         type: integer
     type: object
   DashboardWidgetLocation:
-    description: Location of a widget inside a Dashboard
     properties:
       MaxWidth:
         type: integer
@@ -108,6 +144,32 @@ paths:
         "500":
           description: Internal Server Error
       summary: Create a new Dashboard
+      tags:
+      - dashboard
+    put:
+      consumes:
+      - application/json
+      description: Stores the dashboard object into the database with the same ID.
+      operationId: put-dashboard
+      parameters:
+      - description: The dashboard to update
+        in: body
+        name: dashboard
+        required: true
+        schema:
+          $ref: '#/definitions/Dashboard'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/Dashboard'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Update an existing Dashboard
       tags:
       - dashboard
   /dashboard/{id}:

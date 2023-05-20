@@ -11,21 +11,39 @@
 
 export interface Dashboard {
   createdAt?: string;
-  description?: string;
-  displayName?: string;
   id?: number;
+  metadata?: DashboardMetadata;
   updatedAt?: string;
   widgets?: DashboardWidget[];
 }
 
-/** Widget inside a Dashboard */
+export interface DashboardMetadata {
+  createdAt?: string;
+  dashboardId?: number;
+  description?: string;
+  displayName?: string;
+  headerImage?: number[];
+  id?: number;
+  tags?: DashboardTag[];
+  updateAt?: string;
+}
+
+export interface DashboardTag {
+  bgColor?: string;
+  createdAt?: string;
+  dashboardMetadataId?: number;
+  displayName?: string;
+  id?: number;
+  textColor?: string;
+  updatedAt?: string;
+}
+
 export interface DashboardWidget {
   createdAt?: string;
   dashboardId?: number;
   description?: string;
   displayName?: string;
   id?: number;
-  /** Location of a widget inside a Dashboard */
   location?: DashboardWidgetLocation;
   locationId?: number;
   updatedAt?: string;
@@ -33,7 +51,6 @@ export interface DashboardWidget {
   widgetId?: number;
 }
 
-/** Location of a widget inside a Dashboard */
 export interface DashboardWidgetLocation {
   MaxWidth?: number;
   createdAt?: string;
@@ -55,6 +72,20 @@ export interface Widget {
 }
 
 export namespace Dashboard {
+  /**
+   * @description Stores the dashboard object into the database with the same ID.
+   * @tags dashboard
+   * @name PutDashboard
+   * @summary Update an existing Dashboard
+   * @request PUT:/dashboard
+   */
+  export namespace PutDashboard {
+    export type RequestParams = {};
+    export type RequestQuery = {};
+    export type RequestBody = Dashboard;
+    export type RequestHeaders = {};
+    export type ResponseBody = Dashboard;
+  }
   /**
    * @description Stores the body dashboard object as a new entry in the database
    * @tags dashboard
@@ -375,6 +406,24 @@ export class HttpClient<SecurityDataType = unknown> {
  */
 export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDataType> {
   dashboard = {
+    /**
+     * @description Stores the dashboard object into the database with the same ID.
+     *
+     * @tags dashboard
+     * @name PutDashboard
+     * @summary Update an existing Dashboard
+     * @request PUT:/dashboard
+     */
+    putDashboard: (dashboard: Dashboard, params: RequestParams = {}) =>
+      this.request<Dashboard, void>({
+        path: `/dashboard`,
+        method: "PUT",
+        body: dashboard,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
     /**
      * @description Stores the body dashboard object as a new entry in the database
      *

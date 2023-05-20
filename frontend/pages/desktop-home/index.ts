@@ -1,13 +1,17 @@
 import {html, LitElement, PropertyValues, TemplateResult} from "lit";
-import {customElement, state} from 'lit/decorators.js';
+import {customElement, query, state} from 'lit/decorators.js';
 import "@toolboard/tb-split-panel";
 import {GetCurrentDashboardObserver, SetCurrentDashboard} from "@toolboard/tb-state";
-import {Api, Dashboard} from "@toolboard/tb-api";
+import {Api, Dashboard, HttpResponse} from "@toolboard/tb-api";
 import {globalStyle} from "@toolboard/tb-utils";
 import { when } from "lit/directives/when.js";
 import {ListItem, TbListItem} from "@toolboard/tb-list-browse";
+import "@toolboard/tb-dashboard-card";
+import "@toolboard/tb-dashboard-createform";
+import "@toolboard/tb-dialog";
 import "@toolboard/tb-list-browse";
 import "@toolboard/tb-spinner";
+import {TbDialog} from "@toolboard/tb-dialog";
 
 @customElement("pages-desktop-home")
 export class DesktopHome extends LitElement {
@@ -16,39 +20,55 @@ export class DesktopHome extends LitElement {
     protected selected?: Dashboard;
 
     @state()
-    protected loadedDashboards: Dashboard[] = [];
+    protected loadedDashboards?: Dashboard[];
 
     @state()
-    protected isLoading: boolean = false;
+    protected dashboardPromise?: Promise<HttpResponse<Dashboard[], void>>;
+
+    @query('tb-dialog')
+    protected createDashboardDialogElem?: TbDialog;
 
     // Local vars
-    protected dashboardSub: any;
+    protected dashboardSub?: any;
 
+    static styles = [globalStyle];
 
     /* --------------------- */
 
     disconnectedCallback() {
         super.disconnectedCallback();
-        this.dashboardSub.unsubscribe()
+        this.dashboardSub?.unsubscribe()
     }
 
-    // After first render took place after initialization
-    protected firstUpdated(_changedProperties: PropertyValues) {
-        this.dashboardSub = GetCurrentDashboardObserver().subscribe((dashboard) => {
-            this.selected = dashboard;
-        })
-
-        // Fetch list of dashboards
-        this.isLoading = true;
-        const api = new Api();
-        api.dashboard.getDashboard().then((response) => {
-            this.loadedDashboards = response.data;
-        }).finally(() => {
-            this.isLoading = false;
-        })
+    protected willUpdate(_changedProperties: PropertyValues) {
+        console.log(_changedProperties);
+        if(!this.dashboardSub) {
+            this.dashboardSub = GetCurrentDashboardObserver().subscribe((dashboard) => {
+                this.selected = dashboard;
+            })
+        }
+        if(this.loadedDashboards == undefined && !this.isLoading()) {
+            this.getAllDashboards().then((dashboards) => {
+                if(dashboards == undefined) {
+                    console.error("dashboards was undefined!");
+                    dashboards = [];
+                }
+                console.log(dashboards);
+                this.loadedDashboards = dashboards;
+            });
+        }
     }
 
-    static styles = [globalStyle];
+    protected async getAllDashboards(): Promise<Dashboard[] | undefined> {
+        this.dashboardPromise = new Api().dashboard.getDashboard();
+        this.dashboardPromise.finally(() => this.dashboardPromise = undefined);
+        const response = await this.dashboardPromise;
+        return response.data;
+    }
+
+    protected isLoading(): boolean {
+        return this.dashboardPromise != undefined;
+    }
 
     protected render() {
         return html`
@@ -61,7 +81,7 @@ export class DesktopHome extends LitElement {
                             </div>
                             <div>
                                 <span>Button 1</span>
-                                <span>Button 2</span>
+                                <tb-button variant="primary" text="Create" icon="plus-lg" @click="${() => this.createDashboardDialogElem?.open()}"></tb-button>
                             </div>
                         </div>
                     </div>
@@ -75,28 +95,35 @@ export class DesktopHome extends LitElement {
                     </div>
                 </div>
             </div>
+            <tb-dialog subject="Create a new Dashboard" .hideFooter="${true}">
+                <tb-dashboard-createform @submit="${() => {
+                    this.createDashboardDialogElem?.close();
+                    this.loadedDashboards = undefined;
+                }}"></tb-dashboard-createform>
+            </tb-dialog>
         `
     }
 
     protected getLeftPanelTemplate(): TemplateResult {
-        if(this.isLoading) {
+        if(this.isLoading()) {
             return html`
                 <div>
                     <tb-spinner></tb-spinner>
                     <span>Loading dashboards..</span>
                 </div>
             `
-        } else if(this.loadedDashboards.length == 0) {
+        } else if(this.loadedDashboards?.length == 0) {
             return html`
                 <div>
                     <span>No dashboards found.</span>
                 </div>
             `
-        } else {
+        } else if(this.loadedDashboards != null) {
+            console.log(this.loadedDashboards);
             const items: TbListItem[] = this.loadedDashboards.map((d) => ({
-                id: d.id!.toString(),
-                title: d.displayName,
-                description: d.description,
+                id: d.id.toString(),
+                title: d.metadata?.displayName,
+                description: d.metadata?.description,
                 prefixIcon: "columns-gap",
                 clickable: true,
                 backgroundColor: "var(--tb-color-background-300)",
@@ -112,6 +139,8 @@ export class DesktopHome extends LitElement {
                                     @select="${(ev: CustomEvent) => this.onListItemSelect(ev.detail.value)}"></tb-list-browse>
                 </div>
             `
+        } else {
+            return html`Error`
         }
     }
 
@@ -136,9 +165,8 @@ export class DesktopHome extends LitElement {
 
     protected getRightPanelTemplate(): TemplateResult {
         return html`
-            <div style="padding-left: 18px;">
-                <span>This is a custom right panel!</span>
-                <span>${this.selected?.id} has been selected!</span>
+            <div style="padding-left: 18px; height: 100%;">
+                <tb-dashboard-card></tb-dashboard-card>
             </div>
         `
     }

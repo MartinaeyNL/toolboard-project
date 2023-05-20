@@ -58,4 +58,33 @@ export const globalStyle = css`
       font-weight: normal;
       margin: 0;
     }
+
+  /* user invalid styles */
+  sl-input[data-user-invalid]::part(base),
+  sl-select[data-user-invalid]::part(combobox),
+  sl-checkbox[data-user-invalid]::part(control) {
+    border-color: var(--sl-color-danger-600);
+  }
+
+  [data-user-invalid]::part(form-control-label),
+  [data-user-invalid]::part(form-control-help-text),
+  sl-checkbox[data-user-invalid]::part(label) {
+    color: var(--sl-color-danger-700);
+  }
+
+  sl-checkbox[data-user-invalid]::part(control) {
+    outline: none;
+  }
+
+  sl-input:focus-within[data-user-invalid]::part(base),
+  sl-select:focus-within[data-user-invalid]::part(combobox),
+  sl-checkbox:focus-within[data-user-invalid]::part(control) {
+    border-color: var(--sl-color-danger-600);
+    box-shadow: 0 0 0 var(--sl-focus-ring-width) transparent;
+  }
+  
+  sl-input::part(form-control-label),
+  sl-textarea::part(form-control-label) {
+    margin-bottom: var(--sl-spacing-2x-small);
+  }
 `

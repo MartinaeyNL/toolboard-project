@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "@toolboard/tb-menu": "1.0.0",
+    "@toolboard/tb-notification": "1.0.0",
+    "@toolboard/tb-state": "1.0.0",
     "@toolboard/tb-utils": "1.0.0",
     "lit": "^2.7.0",
+    "pages-desktop-dashboard-editor": "1.0.0",
     "pages-desktop-home": "1.0.0"
   },
   "devDependencies": {

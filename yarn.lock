@@ -2764,6 +2764,92 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@toolboard/tb-button@1.0.0, @toolboard/tb-button@workspace:frontend/components/tb-button":
+  version: 0.0.0-use.local
+  resolution: "@toolboard/tb-button@workspace:frontend/components/tb-button"
+  dependencies:
+    "@toolboard/tb-utils": 1.0.0
+    lit: ^2.7.0
+    rimraf: ^3.0.2
+    tsc-watch: ^6.0.0
+    tsconfig: "*"
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
+"@toolboard/tb-dashboard-card@1.0.0, @toolboard/tb-dashboard-card@workspace:frontend/features/tb-dashboard-card":
+  version: 0.0.0-use.local
+  resolution: "@toolboard/tb-dashboard-card@workspace:frontend/features/tb-dashboard-card"
+  dependencies:
+    "@toolboard/tb-button": 1.0.0
+    "@toolboard/tb-state": 1.0.0
+    "@toolboard/tb-utils": 1.0.0
+    lit: ^2.7.0
+    rimraf: ^3.0.2
+    tsc-watch: ^6.0.0
+    tsconfig: "*"
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
+"@toolboard/tb-dashboard-createform@1.0.0, @toolboard/tb-dashboard-createform@workspace:frontend/features/tb-dashboard-createform":
+  version: 0.0.0-use.local
+  resolution: "@toolboard/tb-dashboard-createform@workspace:frontend/features/tb-dashboard-createform"
+  dependencies:
+    "@toolboard/tb-button": 1.0.0
+    "@toolboard/tb-state": 1.0.0
+    "@toolboard/tb-utils": 1.0.0
+    lit: ^2.7.0
+    rimraf: ^3.0.2
+    tsc-watch: ^6.0.0
+    tsconfig: "*"
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
+"@toolboard/tb-dashboard-settingsform@1.0.0, @toolboard/tb-dashboard-settingsform@workspace:frontend/features/tb-dashboard-settingsform":
+  version: 0.0.0-use.local
+  resolution: "@toolboard/tb-dashboard-settingsform@workspace:frontend/features/tb-dashboard-settingsform"
+  dependencies:
+    "@toolboard/tb-button": 1.0.0
+    "@toolboard/tb-form": 1.0.0
+    "@toolboard/tb-input": 1.0.0
+    "@toolboard/tb-state": 1.0.0
+    "@toolboard/tb-utils": 1.0.0
+    lit: ^2.7.0
+    rimraf: ^3.0.2
+    tsc-watch: ^6.0.0
+    tsconfig: "*"
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
+"@toolboard/tb-dialog@1.0.0, @toolboard/tb-dialog@workspace:frontend/components/tb-dialog":
+  version: 0.0.0-use.local
+  resolution: "@toolboard/tb-dialog@workspace:frontend/components/tb-dialog"
+  dependencies:
+    "@toolboard/tb-utils": 1.0.0
+    lit: ^2.7.0
+    rimraf: ^3.0.2
+    tsc-watch: ^6.0.0
+    tsconfig: "*"
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
+"@toolboard/tb-form@1.0.0, @toolboard/tb-form@workspace:frontend/components/tb-form":
+  version: 0.0.0-use.local
+  resolution: "@toolboard/tb-form@workspace:frontend/components/tb-form"
+  dependencies:
+    "@toolboard/tb-utils": 1.0.0
+    lit: ^2.7.0
+    rimraf: ^3.0.2
+    tsc-watch: ^6.0.0
+    tsconfig: "*"
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
 "@toolboard/tb-grid@workspace:frontend/components/tb-grid":
   version: 0.0.0-use.local
   resolution: "@toolboard/tb-grid@workspace:frontend/components/tb-grid"
@@ -2777,10 +2863,24 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@toolboard/tb-input@1.0.0, @toolboard/tb-input@workspace:frontend/components/tb-input":
+  version: 0.0.0-use.local
+  resolution: "@toolboard/tb-input@workspace:frontend/components/tb-input"
+  dependencies:
+    "@toolboard/tb-utils": 1.0.0
+    lit: ^2.7.0
+    rimraf: ^3.0.2
+    tsc-watch: ^6.0.0
+    tsconfig: "*"
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
 "@toolboard/tb-list-browse@1.0.0, @toolboard/tb-list-browse@workspace:frontend/components/tb-list-browse":
   version: 0.0.0-use.local
   resolution: "@toolboard/tb-list-browse@workspace:frontend/components/tb-list-browse"
   dependencies:
+    "@toolboard/tb-state": 1.0.0
     "@toolboard/tb-utils": 1.0.0
     lit: ^2.7.0
     rimraf: ^3.0.2
@@ -2795,7 +2895,20 @@ __metadata:
   resolution: "@toolboard/tb-menu@workspace:frontend/components/tb-menu"
   dependencies:
     "@toolboard/tb-utils": 1.0.0
-    flat: ^5.0.2
+    lit: ^2.7.0
+    rimraf: ^3.0.2
+    tsc-watch: ^6.0.0
+    tsconfig: "*"
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
+"@toolboard/tb-notification@workspace:frontend/components/tb-notification":
+  version: 0.0.0-use.local
+  resolution: "@toolboard/tb-notification@workspace:frontend/components/tb-notification"
+  dependencies:
+    "@toolboard/tb-state": 1.0.0
+    "@toolboard/tb-utils": 1.0.0
     lit: ^2.7.0
     rimraf: ^3.0.2
     tsc-watch: ^6.0.0
@@ -4970,15 +5083,6 @@ __metadata:
     locate-path: ^6.0.0
     path-exists: ^4.0.0
   checksum: 07955e357348f34660bde7920783204ff5a26ac2cafcaa28bace494027158a97b9f56faaf2d89a6106211a8174db650dd9f503f9c0d526b1202d5554a00b9095
-  languageName: node
-  linkType: hard
-
-"flat@npm:^5.0.2":
-  version: 5.0.2
-  resolution: "flat@npm:5.0.2"
-  bin:
-    flat: cli.js
-  checksum: 12a1536ac746db74881316a181499a78ef953632ddd28050b7a3a43c62ef5462e3357c8c29d76072bb635f147f7a9a1f0c02efef6b4be28f8db62ceb3d5c7f5d
   languageName: node
   linkType: hard
 
@@ -7424,11 +7528,47 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pages-desktop-dashboard-editor@1.0.0, pages-desktop-dashboard-editor@workspace:frontend/pages/desktop-dashboard-editor":
+  version: 0.0.0-use.local
+  resolution: "pages-desktop-dashboard-editor@workspace:frontend/pages/desktop-dashboard-editor"
+  dependencies:
+    "@toolboard/tb-api": 1.0.0
+    "@toolboard/tb-spinner": 1.0.0
+    "@toolboard/tb-state": 1.0.0
+    "@toolboard/tb-utils": 1.0.0
+    lit: ^2.7.0
+    rimraf: ^3.0.2
+    tsc-watch: ^6.0.0
+    tsconfig: "*"
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
+"pages-desktop-dashboard-settings@workspace:frontend/pages/desktop-dashboard-settings":
+  version: 0.0.0-use.local
+  resolution: "pages-desktop-dashboard-settings@workspace:frontend/pages/desktop-dashboard-settings"
+  dependencies:
+    "@toolboard/tb-api": 1.0.0
+    "@toolboard/tb-dashboard-settingsform": 1.0.0
+    "@toolboard/tb-spinner": 1.0.0
+    "@toolboard/tb-state": 1.0.0
+    "@toolboard/tb-utils": 1.0.0
+    lit: ^2.7.0
+    rimraf: ^3.0.2
+    tsc-watch: ^6.0.0
+    tsconfig: "*"
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
 "pages-desktop-home@1.0.0, pages-desktop-home@workspace:frontend/pages/desktop-home":
   version: 0.0.0-use.local
   resolution: "pages-desktop-home@workspace:frontend/pages/desktop-home"
   dependencies:
     "@toolboard/tb-api": 1.0.0
+    "@toolboard/tb-dashboard-card": 1.0.0
+    "@toolboard/tb-dashboard-createform": 1.0.0
+    "@toolboard/tb-dialog": 1.0.0
     "@toolboard/tb-list-browse": 1.0.0
     "@toolboard/tb-spinner": 1.0.0
     "@toolboard/tb-split-panel": 1.0.0
@@ -7446,8 +7586,10 @@ __metadata:
   resolution: "pages-desktop-main@workspace:frontend/pages/desktop-main"
   dependencies:
     "@toolboard/tb-menu": 1.0.0
+    "@toolboard/tb-state": 1.0.0
     "@toolboard/tb-utils": 1.0.0
     lit: ^2.7.0
+    pages-desktop-dashboard-editor: 1.0.0
     pages-desktop-home: 1.0.0
     rimraf: ^3.0.2
     tsc-watch: ^6.0.0

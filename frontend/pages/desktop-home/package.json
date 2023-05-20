@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@toolboard/tb-api": "1.0.0",
+    "@toolboard/tb-dashboard-card": "1.0.0",
+    "@toolboard/tb-dashboard-createform": "1.0.0",
+    "@toolboard/tb-dialog": "1.0.0",
     "@toolboard/tb-list-browse": "1.0.0",
     "@toolboard/tb-spinner": "1.0.0",
     "@toolboard/tb-split-panel": "1.0.0",

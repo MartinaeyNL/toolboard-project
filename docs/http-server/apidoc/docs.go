@@ -17,6 +17,45 @@ const docTemplate = `{
     "basePath": "{{.BasePath}}",
     "paths": {
         "/dashboard": {
+            "put": {
+                "description": "Stores the dashboard object into the database with the same ID.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "dashboard"
+                ],
+                "summary": "Update an existing Dashboard",
+                "operationId": "put-dashboard",
+                "parameters": [
+                    {
+                        "description": "The dashboard to update",
+                        "name": "dashboard",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Dashboard"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Dashboard"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            },
             "post": {
                 "description": "Stores the body dashboard object as a new entry in the database",
                 "consumes": [
@@ -223,14 +262,11 @@ const docTemplate = `{
                 "createdAt": {
                     "type": "string"
                 },
-                "description": {
-                    "type": "string"
-                },
-                "displayName": {
-                    "type": "string"
-                },
                 "id": {
                     "type": "integer"
+                },
+                "metadata": {
+                    "$ref": "#/definitions/DashboardMetadata"
                 },
                 "updatedAt": {
                     "type": "string"
@@ -243,8 +279,68 @@ const docTemplate = `{
                 }
             }
         },
+        "DashboardMetadata": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "dashboardId": {
+                    "type": "integer"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "headerImage": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/DashboardTag"
+                    }
+                },
+                "updateAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "DashboardTag": {
+            "type": "object",
+            "properties": {
+                "bgColor": {
+                    "type": "string"
+                },
+                "createdAt": {
+                    "type": "string"
+                },
+                "dashboardMetadataId": {
+                    "type": "integer"
+                },
+                "displayName": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "textColor": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
         "DashboardWidget": {
-            "description": "Widget inside a Dashboard",
             "type": "object",
             "properties": {
                 "createdAt": {
@@ -280,7 +376,6 @@ const docTemplate = `{
             }
         },
         "DashboardWidgetLocation": {
-            "description": "Location of a widget inside a Dashboard",
             "type": "object",
             "properties": {
                 "MaxWidth": {

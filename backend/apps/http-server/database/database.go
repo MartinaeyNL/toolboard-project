@@ -53,8 +53,12 @@ func getDialector(driverName string, path string) gorm.Dialector {
 }
 
 func migrate() {
-
-	err := db.AutoMigrate(&models.Dashboard{})
+	err := db.AutoMigrate(
+		&models.DashboardTag{},
+		&models.DashboardMetadata{},
+		&models.DashboardWidgetLocation{},
+		&models.DashboardWidget{},
+		&models.Dashboard{})
 	if err != nil {
 		log.Fatal(err.Error())
 	}

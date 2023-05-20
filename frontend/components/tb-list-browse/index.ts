@@ -61,18 +61,11 @@ export class TbListBrowse extends LitElement {
     @property()
     protected suffixIconSize: 'xl' | 'lg' | 'md' | 'sm' = 'lg'
 
-    // Local vars
-    protected dashboardSub: any;
 
     /* ---------------------------------- */
 
     // Import css
     static styles = [globalStyle, styling];
-
-    disconnectedCallback() {
-        super.disconnectedCallback();
-        this.dashboardSub.unsubscribe()
-    }
 
     protected getBaseItemStyleMap(item: ListItem): {} {
         return {

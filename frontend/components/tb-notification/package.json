@@ -1,0 +1,22 @@
+{
+  "name": "@toolboard/tb-notification",
+  "version": "1.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsc-watch --noClear --silent",
+    "build": "rimraf lib/ && tsc"
+  },
+  "dependencies": {
+    "@toolboard/tb-state": "1.0.0",
+    "@toolboard/tb-utils": "1.0.0",
+    "lit": "^2.7.0"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "tsc-watch": "^6.0.0",
+    "tsconfig": "*",
+    "typescript": "^4.6.4"
+  }
+}

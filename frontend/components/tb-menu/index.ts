@@ -120,7 +120,7 @@ export class TbMenu extends LitElement {
     }
 
     protected onItemClick(id: string) {
-        this.dispatchEvent(new CustomEvent("select", { detail: id }))
+        this.dispatchEvent(new CustomEvent("select", { detail: { value: id }}))
     }
 
     protected getItemTemplate(menuItem: TbMenuItem): TemplateResult {
